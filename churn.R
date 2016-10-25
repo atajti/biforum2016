@@ -2,7 +2,7 @@
 ### CHURN projekt ####################################################
 # kik fognak lemorzsolódni? ##########################################
 #--------------------------------------------------------------------#
-
+# tinyurl.hu/Rhnd
 
 setwd("/media/munka/Új kötet/ANDEGO/161021_BI_Forum_2016/Churn projekt példa")
 
@@ -35,6 +35,10 @@ osszes_adat[, termekszam := sum(megtakaritas, biztositas, jelzalog),
 #--------------------------------------------------------------------#
 ### Adatok vizsgálata ################################################
 #--------------------------------------------------------------------#
+lapply(osszes_adat[, names(osszes_adat)[-1], with=FALSE],
+       table,
+       useNA="ifany")
+
 library(caret)
 osszes_adat[, `:=`(neme = as.factor(neme),
                    hazas= as.factor(hazas),
